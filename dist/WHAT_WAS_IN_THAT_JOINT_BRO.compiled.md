@@ -64,6 +64,8 @@ Printed in the United States of America
 * **Back Matter: Glossary & Resources**
 * **Sequel Teaser: The Cannabinoid Cookbook**
 
+<div style="page-break-after: always;"></div>
+
 ## Introduction: The Question on the Street
 
 The question usually gets asked in a cold parking lot, on a stoop, or on the back patio of a venue where the bass is still thumping through the brickwork:
@@ -94,6 +96,8 @@ The Purple Canary Protocol adapts paper thin-layer chromatography (Paper TLC) to
 Here is the contract: **Presumptive testing does not issue an unconditional certificate of purity.** A clean strip showing no targeted adulterants does not mean a substance is risk-free. What it delivers is **forensic parity**—the ability to verify baseline chemical realities, catch dangerous synthetic adulterants and hazardous bulking oils before consumption, and eliminate blind guesswork.
 
 Community safety doesn't start with blind faith in a colorful package or a seller's promise. It starts with having the curiosity to test the claim, inspect the strip, and know the truth before anyone takes a hit.
+
+<div style="page-break-after: always;"></div>
 
 # PART ONE: FOR EVERYONE
 
@@ -148,6 +152,8 @@ For far too long, analytical science has operated like a walled garden. The abil
 Forensic parity does not require stealing a eighty-thousand-dollar mass spectrometer. It means using the foundational laws of physics, chromatography, and optics—harnessing food-grade ingredients, ordinary paper, and the digital lens in your smartphone—to inspect reality right at your kitchen table.
 
 Testing what you take isn't paranoid; it is basic self-defense, community solidarity, and common sense in an adulterated world.
+
+<div style="page-break-after: always;"></div>
 
 ## Chapter 2: The Kitchen, the Thermos, and the Keychain Light
 
@@ -235,6 +241,8 @@ When people see the complete demo kit laid out in its cardboard packaging—embl
 Because hoarding public health tools behind corporate patents is how we ended up in the adulterant crisis in the first place.
 
 If you know how to build a working life jacket, you don't keep the blueprint locked in a safe while people are drowning in the harbor. You draw the schematic on the wall, hand out the canvas, and show everyone how to stitch the seams. The Purple Canary Protocol belongs to everyone—from the person testing a five-dollar preroll on their kitchen table to the peer specialist running samples out of a civic outreach van. The secrets are out, the guesswork is over, and the tools are in your hands.
+
+<div style="page-break-after: always;"></div>
 
 ## Chapter 3: Paper, Light, and Lemon: The Chemistry in Plain English
 
@@ -378,6 +386,8 @@ This is why the **insulated stainless steel thermal bottle** serves as our devel
 
 You don't need a chemical fume hood, you don't need expensive glass chambers, and you don't need carcinogenic petroleum solvents. You need a strip of paper, a drop of citrus developer, a closed thermal bottle, and a beam of ultraviolet light. That is all it takes to turn invisible chemistry into undeniable, visual truth.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 4: SPOT: Taking the Sample
 
 The accuracy of every chromatographic test is decided in the first five seconds of preparation. If you overload the paper, smudge the origin, or use the wrong tool to mark your line, no computer vision app or UV light in the world can rescue the run.
@@ -457,6 +467,8 @@ Follow this exact sequence:
 | **Pen Baseline Ink** | Extra foreign dye bands trailing from bottom | Origin marked with pen or felt-tip marker | Only use graphite pencil to mark reference points. |
 
 Mastering the **SPOT** phase turns physical sampling into second nature: minimal material, zero waste, absolute precision, and complete safety. Once the dry spot is set on the pencil line, your strip is ready for the chamber.
+
+<div style="page-break-after: always;"></div>
 
 ## Chapter 5: SNAP: The Phone Does the Seeing
 
@@ -598,6 +610,8 @@ With a steady hand, a five-dollar keychain light, and a smartphone camera, the p
 
 Next comes the decisive step: knowing exactly what the readout means.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 6: KNOW: Reading Your Results
 
 The final phase of the protocol is **KNOW**. Once the phone captures and processes the strip, the screen transitions from raw densitometric scans to an operational readout.
@@ -710,6 +724,8 @@ Over time, this historical log turns personal testing into a powerful defense me
 
 Once you know how to read the strip, ambiguity vanishes. The visual data is clear, the confidence boundaries are established, and the power to decide rests entirely with you. But what happens when the strip reveals something alarming? That is where decision-making shifts from observation to action.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 7: When the Result Scares You
 
 It is one thing to run a test out of intellectual curiosity; it is another thing entirely when the 365 nm UV beam hits the paper and reveals an unexpected, sharp silhouette where clean space should be. Or worse, the phone screen flashes an alert: *High-potency synthetic agonist detected* or *Unidentified fluorophore band present*.
@@ -812,6 +828,8 @@ Many jurisdictions have Good Samaritan 911 laws that protect callers and victims
 
 Testing what you take gives you back your autonomy. When a test reveals bad news, it is not an obstacle—it is your early warning radar doing its job. You spotted the hazard, you verified the data, and you lived to tell the story. That is what staying alive in the modern era looks like.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 8: What This Can't Tell You
 
 Honesty is the single most important chemical in this entire protocol.
@@ -902,6 +920,8 @@ A peer-to-peer testing method that openly admits its boundaries is infinitely mo
 
 You don't trust blindly. You spot the paper, check the bands, know the limits, and keep yourself alive.
 
+<div style="page-break-after: always;"></div>
+
 # ★ The Purple Canary Protocol: One-Page Field SOP
 
 **Presumptive Field Screening via Paper Thin-Layer Chromatography (TLC)**  
@@ -964,6 +984,8 @@ You don't trust blindly. You spot the paper, check the bands, know the limits, a
 ---
 
 > **Harm Reduction Axiom:** Presumptive screening does not guarantee complete purity. "No adulterant detected" indicates absence of targeted markers, not total clinical safety. When in doubt: pause, re-test, and do not consume.
+
+<div style="page-break-after: always;"></div>
 
 ## Chapter 9: The Purple Canary Protocol (Full SOP)
 
@@ -1256,6 +1278,8 @@ Every test executed under this protocol must be transcribed into an archival log
 
 > **Operational Standard Note:** This SOP governs presumptive screening only. When anomalous bands or high-hazard quenching flags occur, the sample must be designated as presumptive positive for contamination and diverted from human consumption. Formal confirmation requires laboratory GC-MS or HPLC evaluation.
 
+<div style="page-break-after: always;"></div>
+
 # PART TWO: FOR HARM-REDUCTION AGENCIES
 
 ## Chapter 10: Why Your Agency Needs This
@@ -1377,6 +1401,8 @@ Instead of overwhelming central state laboratories with thousands of routine sam
 
 By bringing low-cost, food-grade chromatographic testing into your agency's daily workflow, you close the service gap, preserve your budget, and provide your community with the forensic protection they deserve.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 11: Deploying the Protocol
 
 Bringing drug-checking out of theoretical white papers and into frontline operations requires deliberate operational design. If a testing station feels cumbersome to staff or intimidating to participants, throughput drops and the intervention fails.
@@ -1480,6 +1506,8 @@ To maintain operational consistency across multiple outreach teams or satellite 
 7. **Documentation Card:** One laminated one-page field SOP summary card with baseline troubleshooting tables.
 
 Standardizing the kit hardware ensures every volunteer, outreach team, and satellite clinic executes identical testing parameters, producing clean, cross-comparable telemetry data across your entire community safety network.
+
+<div style="page-break-after: always;"></div>
 
 ## Chapter 12: Training Your Team
 
@@ -1590,6 +1618,8 @@ During initial field shifts, supervisors should watch for three frequent operati
 
 By investing an hour in practical, peer-centered coaching, your organization transforms everyday outreach workers into confident frontline harm-reduction scientists.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 13: Restocking and Sustaining
 
 Field harm reduction programs rarely shut down because of philosophical disagreements; they shut down when the budget runs out of money for proprietary consumables or the supply chain breaks.
@@ -1696,6 +1726,8 @@ At **$169.00 per thousand tests**, the running cost sits at approximately **16.9
 
 By stripping out proprietary vendor lock-in, your agency is never held hostage by supply shortages, expired proprietary cassettes, or corporate price hikes. The tools stay cheap, the supply lines remain open, and the testing table stays open every single night your community needs it.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 14: The Economics of Free Testing
 
 Providing free, point-of-care drug checking is an ethical imperative, but sustaining it is an economic problem. Harm-reduction agencies operate inside volatile funding environments where political winds shift, opioid-settlement dollars get delayed in bureaucratic committees, and small municipal grants expire without warning.
@@ -1786,6 +1818,8 @@ This economic architecture ensures that institutional programs with formal fundi
 
 Free testing is not a temporary luxury funded by a fleeting charity drive. Built on commodity chemistry, open-market sourcing, and aligned software incentives, it becomes a permanent community utility that keeps running year after year.
 
+<div style="page-break-after: always;"></div>
+
 ## Chapter 15: Open Methods, Open Knowledge
 
 The moment an institution discovers an effective testing method, the historical instinct is almost always the same: fence it in, brand it, classify it, and charge admission.
@@ -1873,6 +1907,8 @@ We do not need to wait for institutional permission to protect our communities f
 
 Put the protocol on the table, teach your team, distribute the strips, and take your community's safety into your own hands.
 
+<div style="page-break-after: always;"></div>
+
 # Closing: The Living Protocol
 
 A field protocol is never a static document locked in a glass display case; it is a living, collective defense system.
@@ -1890,6 +1926,8 @@ If you are an individual holding an unverified product at a kitchen table, test 
 The next time someone hands you an unverified bag and the old dread creeps into the room, you will never have to wonder in the dark again.
 
 Pick up a strip, prepare your chamber, click on the light, and know what's real.
+
+<div style="page-break-after: always;"></div>
 
 # Back Matter
 
@@ -1981,6 +2019,8 @@ And thank you to the peer specialists, outreach workers, shelter staff, and stre
 
 Through the Purple Canary Project, he combines accessible, food-grade analytical chemistry with mobile computer vision to put point-of-care forensic verification directly into the hands of ordinary consumers and frontline harm-reduction agencies. He operates TehWiz Productions at `tehwiz.com`.
 
+<div style="page-break-after: always;"></div>
+
 # Coming Next: The Sequel
 
 ### *For Joe — who begged me not to write it.*
@@ -1996,4 +2036,6 @@ The next volume tackles the other half of the equation.
 If *What Was In That Joint Bro!?* provides the defensive radar to detect adulterated garbage and stay alive, the upcoming cookbook lays out the proactive substitution framework: how natural phytocannabinoid formulations, minor cannabinoid ratios, and targeted plant preparations can systematically displace the toxic, unpredictable pharmaceuticals dominating the street.
 
 The testing protocol in your hands is its lifelong companion. Verify what's real, clear out the poison, and build the clean alternative.
+
+<div style="page-break-after: always;"></div>
 
