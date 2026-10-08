@@ -52,6 +52,12 @@ def extract_headings(markdown_text: str):
         if match:
             level = len(match.group(1))
             title = match.group(2).strip()
+            # Skip part title banners from subsections
+            if title in ("PART ONE: FOR EVERYONE", "PART TWO: FOR HARM-REDUCTION AGENCIES"):
+                continue
+            # For Chapter 1 and Chapter 10, skip the chapter title line from subsections
+            if title.startswith("Chapter 1: Why Test What") or title.startswith("Chapter 10: Why Your Agency"):
+                continue
             slug = re.sub(r"[^\w\- ]", "", title).lower().replace(" ", "-")
             headings.append({"level": level, "title": title, "slug": slug})
     return headings
@@ -83,16 +89,40 @@ def compile_manuscript():
         # Derive human friendly chapter name
         clean_name = re.sub(r"^\d+\.\s*", "", fname.replace(".md", ""))
         first_h1 = re.search(r"^#\s+(.+)$", cleaned, re.MULTILINE)
-        display_title = first_h1.group(1) if first_h1 else clean_name
+        first_h2 = re.search(r"^##\s+(.+)$", cleaned, re.MULTILINE)
+
+        part = None
+        if 2 <= idx <= 11:
+            part = "PART ONE: FOR EVERYONE"
+        elif 12 <= idx <= 17:
+            part = "PART TWO: FOR HARM-REDUCTION AGENCIES"
+
+        if idx == 2:
+            display_title = first_h2.group(1) if first_h2 else "Chapter 1: Why Test What You Take"
+        elif idx == 12:
+            display_title = first_h2.group(1) if first_h2 else "Chapter 10: Why Your Agency Needs This"
+        elif first_h1 and not first_h1.group(1).startswith("PART "):
+            display_title = first_h1.group(1)
+        elif first_h2:
+            display_title = first_h2.group(1)
+        else:
+            display_title = clean_name
 
         slug = f"ch-{idx:02d}-{re.sub(r'[^a-zA-Z0-9]+', '-', clean_name).lower().strip('-')}"
+
+        # Word count & estimated reading time (~200 wpm)
+        words = len(re.findall(r"\b\w+\b", cleaned))
+        reading_minutes = max(1, round(words / 200))
 
         book_structure["chapters"].append({
             "id": slug,
             "filename": fname,
             "title": display_title,
+            "part": part,
             "headings": extract_headings(cleaned),
-            "markdown": cleaned
+            "markdown": cleaned,
+            "wordCount": words,
+            "readingMinutes": reading_minutes
         })
 
         master_md_lines.append(cleaned)
@@ -124,5 +154,13 @@ def compile_manuscript():
     else:
         print("[i] Pandoc not found. Skipped binary EPUB/PDF compilation.")
 
+    # Automatically refresh standalone wiki SPA
+    try:
+        from generate_wiki_spa import generate_spa
+        generate_spa()
+    except Exception as e:
+        print(f"[i] Wiki SPA generation skipped: {e}")
+
 if __name__ == "__main__":
     compile_manuscript()
+
