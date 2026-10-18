@@ -1,0 +1,12 @@
+# robots.txt for "What Was In That Joint Bro!? — The Purple Canary Protocol"
+# Production Site: https://book.purplecanarylab.com/
+
+User-agent: *
+Allow: /
+
+# LLM Context Files (https://llmstxt.org/)
+# High-signal structured documentation for AI models and search assistants
+# Context: https://book.purplecanarylab.com/llms.txt
+# Full Manuscript: https://book.purplecanarylab.com/llms-full.txt
+
+Sitemap: https://book.purplecanarylab.com/sitemap.xml

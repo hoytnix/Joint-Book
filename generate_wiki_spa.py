@@ -6,7 +6,9 @@ Features a full-height, left-to-right paginated e-reader with page flipping.
 No Node.js or bundlers required.
 """
 
+import re
 import json
+import shutil
 from pathlib import Path
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -15,6 +17,31 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>What Was In That Joint Bro!? — The Purple Canary Protocol</title>
+  <meta name="description" content="What Was In That Joint Bro!? — An open-source, field-deployable harm reduction Thin-Layer Chromatography (TLC) protocol for detecting synthetic cannabinoids and adulterants.">
+  <meta name="keywords" content="Purple Canary Protocol, Synthetic Cannabinoids, Spice, K2, TLC, Thin Layer Chromatography, Harm Reduction, Drug Testing, Fast Blue B, Public Health">
+  <meta name="author" content="Michael Scott Hoyt">
+  <link rel="canonical" href="https://book.purplecanarylab.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="book">
+  <meta property="og:site_name" content="The Purple Canary Protocol">
+  <meta property="og:url" content="https://book.purplecanarylab.com/">
+  <meta property="og:title" content="What Was In That Joint Bro!? — The Purple Canary Protocol">
+  <meta property="og:description" content="An open-source harm-reduction field protocol for Thin-Layer Chromatography (TLC) screening of synthetic cannabinoids and adulterated cannabis products.">
+  <meta property="og:image" content="https://book.purplecanarylab.com/cover.png">
+  <meta property="og:image:alt" content="Cover art for What Was In That Joint Bro!? — The Purple Canary Protocol">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Was In That Joint Bro!? — The Purple Canary Protocol">
+  <meta name="twitter:description" content="An open-source harm-reduction field protocol for Thin-Layer Chromatography (TLC) screening of synthetic cannabinoids and adulterated cannabis products.">
+  <meta name="twitter:image" content="https://book.purplecanarylab.com/cover.png">
+
+  <!-- Comprehensive Schema.org JSON-LD -->
+  <script type="application/ld+json">
+{{JSON_LD_DATA}}
+  </script>
+
   <link rel="icon" type="image/png" href="https://i.ibb.co/C3Jc6MKH/Gemini-Generated-Image-p4r67dp4r67dp4r6-removebg-preview.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1390,6 +1417,229 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
+def build_json_ld(book_data: dict, base_url: str = "https://book.purplecanarylab.com") -> str:
+    """
+    Constructs comprehensive Schema.org Linked Data (JSON-LD) for the book,
+    organization, author, website, and all chapter parts.
+    """
+    chapters_ld = []
+    for idx, ch in enumerate(book_data.get("chapters", [])):
+        ch_slug = ch.get("id", "")
+        ch_title = ch.get("title", f"Chapter {idx}")
+        ch_words = ch.get("wordCount", 0)
+        ch_mins = ch.get("readingMinutes", 1)
+
+        # Extract a brief excerpt for headline/description
+        md = ch.get("markdown", "")
+        lines = [
+            line.strip()
+            for line in md.splitlines()
+            if line.strip() and not line.strip().startswith(("#", ">", "*", "-", "|", "<"))
+        ]
+        desc = lines[0] if lines else f"{ch_title} — The Purple Canary Protocol"
+        if len(desc) > 200:
+            desc = desc[:197] + "..."
+
+        chapters_ld.append({
+            "@type": "Chapter",
+            "@id": f"{base_url}/#{ch_slug}",
+            "position": idx + 1,
+            "name": ch_title,
+            "headline": ch_title,
+            "description": desc,
+            "url": f"{base_url}/#{ch_slug}",
+            "wordCount": ch_words,
+            "timeRequired": f"PT{ch_mins}M",
+            "inLanguage": "en-US",
+            "isPartOf": {
+                "@id": f"{base_url}/#book"
+            }
+        })
+
+    total_words = sum(ch.get("wordCount", 0) for ch in book_data.get("chapters", []))
+    estimated_pages = max(1, round(total_words / 250))
+
+    graph = [
+        {
+            "@type": "WebSite",
+            "@id": f"{base_url}/#website",
+            "url": f"{base_url}/",
+            "name": "What Was In That Joint Bro!? — The Purple Canary Protocol",
+            "description": "An open-source harm-reduction field protocol and documentation manual for thin-layer chromatography (TLC) detection of synthetic cannabinoids and adulterants.",
+            "inLanguage": "en-US",
+            "publisher": {
+                "@id": "https://tehwiz.com/#organization"
+            }
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://tehwiz.com/#organization",
+            "name": "TehWiz Productions",
+            "url": "https://tehwiz.com",
+            "logo": {
+                "@type": "ImageObject",
+                "@id": f"{base_url}/#logo",
+                "url": f"{base_url}/logo.png",
+                "contentUrl": f"{base_url}/logo.png",
+                "caption": "The Purple Canary Protocol Logo"
+            },
+            "sameAs": [
+                "https://tehwiz.com",
+                "https://github.com/hoytnix"
+            ]
+        },
+        {
+            "@type": "Person",
+            "@id": f"{base_url}/#author",
+            "name": "Michael Scott Hoyt",
+            "jobTitle": "Harm Reduction Researcher & Author",
+            "sameAs": [
+                "https://github.com/hoytnix",
+                "https://tehwiz.com"
+            ]
+        },
+        {
+            "@type": "Book",
+            "@id": f"{base_url}/#book",
+            "url": f"{base_url}/",
+            "name": book_data.get("title", "WHAT WAS IN THAT JOINT BRO!?"),
+            "alternateName": book_data.get("subtitle", "An Introduction To The Purple Canary Protocol"),
+            "headline": "An Introduction To The Purple Canary Protocol: Forensic Demystification & Rapid Field Testing for Adulterated Cannabis",
+            "author": {
+                "@id": f"{base_url}/#author"
+            },
+            "publisher": {
+                "@id": "https://tehwiz.com/#organization"
+            },
+            "datePublished": "2026-10-08",
+            "inLanguage": "en-US",
+            "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "copyrightYear": 2026,
+            "copyrightHolder": {
+                "@id": f"{base_url}/#author"
+            },
+            "genre": [
+                "Harm Reduction",
+                "Forensic Chemistry",
+                "Public Health",
+                "Drug Safety",
+                "Thin Layer Chromatography"
+            ],
+            "keywords": [
+                "Purple Canary Protocol",
+                "Synthetic Cannabinoids",
+                "SPICE",
+                "K2",
+                "TLC",
+                "Thin Layer Chromatography",
+                "Harm Reduction",
+                "Drug Checking",
+                "Fast Blue B",
+                "Cannabis Adulteration",
+                "Field SOP"
+            ],
+            "description": "An introduction to the Purple Canary Protocol: a low-cost, open-science field testing methodology using thin-layer chromatography (TLC), Fast Blue B/BB salt, and smartphone photodocumentation to screen for synthetic cannabinoids (SPICE/K2) and adulterants in cannabis products.",
+            "image": {
+                "@type": "ImageObject",
+                "@id": f"{base_url}/#cover",
+                "url": f"{base_url}/cover.png",
+                "contentUrl": f"{base_url}/cover.png",
+                "thumbnailUrl": f"{base_url}/logo.png",
+                "caption": "What Was In That Joint Bro!? — Book Cover",
+                "width": 848,
+                "height": 1264
+            },
+            "thumbnailUrl": f"{base_url}/logo.png",
+            "numberOfPages": estimated_pages,
+            "wordCount": total_words,
+            "teaches": "Presumptive thin-layer chromatography (TLC) identification of natural cannabinoids and synthetic adulterants",
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Synthetic Cannabinoids",
+                    "description": "Potent synthetic cannabinoid receptor agonists (SCRAs) such as MDMB-4en-PINACA and ADB-BUTINACA."
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Thin-Layer Chromatography",
+                    "description": "Presumptive analytical chemistry separation and chromogenic visualization technique."
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Harm Reduction",
+                    "description": "Decentralized, non-stigmatizing public health strategies and community drug checking."
+                }
+            ],
+            "bookFormat": [
+                "https://schema.org/EBook",
+                "https://schema.org/Hardcover",
+                "https://schema.org/Paperback"
+            ],
+            "hasPart": chapters_ld,
+            "workExample": [
+                {
+                    "@type": "Book",
+                    "bookFormat": "https://schema.org/EBook",
+                    "name": "Web Interactive Reader (SPA)",
+                    "encodingFormat": "text/html",
+                    "url": f"{base_url}/"
+                },
+                {
+                    "@type": "Book",
+                    "bookFormat": "https://schema.org/EBook",
+                    "name": "Unified Markdown Manuscript",
+                    "encodingFormat": "text/markdown",
+                    "url": f"{base_url}/WHAT_WAS_IN_THAT_JOINT_BRO.compiled.md"
+                },
+                {
+                    "@type": "Book",
+                    "bookFormat": "https://schema.org/EBook",
+                    "name": "Digital EPUB Edition",
+                    "encodingFormat": "application/epub+zip",
+                    "url": f"{base_url}/WHAT_WAS_IN_THAT_JOINT_BRO.epub"
+                },
+                {
+                    "@type": "Book",
+                    "bookFormat": "https://schema.org/EBook",
+                    "name": "Print-Ready PDF",
+                    "encodingFormat": "application/pdf",
+                    "url": f"{base_url}/WHAT_WAS_IN_THAT_JOINT_BRO.pdf"
+                }
+            ]
+        }
+    ]
+
+    return json.dumps({"@context": "https://schema.org", "@graph": graph}, indent=2, ensure_ascii=False)
+
+
+def generate_sitemap(book_data: dict, sitemap_path: Path, base_url: str = "https://book.purplecanarylab.com"):
+    """Generate a clean sitemap.xml for search engines."""
+    urls = [
+        (f"{base_url}/", "weekly", "1.0"),
+        (f"{base_url}/llms.txt", "monthly", "0.8"),
+        (f"{base_url}/llms-full.txt", "monthly", "0.7"),
+        (f"{base_url}/WHAT_WAS_IN_THAT_JOINT_BRO.html", "monthly", "0.6"),
+    ]
+    for ch in book_data.get("chapters", []):
+        ch_slug = ch.get("id")
+        if ch_slug:
+            urls.append((f"{base_url}/#{ch_slug}", "monthly", "0.8"))
+
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    ]
+    for loc, changefreq, priority in urls:
+        xml_lines.append("  <url>")
+        xml_lines.append(f"    <loc>{loc}</loc>")
+        xml_lines.append(f"    <changefreq>{changefreq}</changefreq>")
+        xml_lines.append(f"    <priority>{priority}</priority>")
+        xml_lines.append("  </url>")
+    xml_lines.append("</urlset>\n")
+
+    sitemap_path.write_text("\n".join(xml_lines), encoding="utf-8")
+
+
 def generate_spa():
     root = Path(__file__).parent.resolve()
     dist = root / "dist"
@@ -1408,17 +1658,81 @@ def generate_spa():
         except Exception:
             pass
 
+    # Ensure CNAME is written for GitHub Pages custom domain
+    cname_file = dist / "CNAME"
+    cname_file.write_text("book.purplecanarylab.com\n", encoding="utf-8")
+
+    # Ensure cover images are synchronized between root and dist
+    for ext in ("png", "jpg"):
+        c_root = root / f"cover.{ext}"
+        c_dist = dist / f"cover.{ext}"
+        if c_root.exists() and not c_dist.exists():
+            shutil.copy2(c_root, c_dist)
+        elif c_dist.exists() and not c_root.exists():
+            shutil.copy2(c_dist, c_root)
+
+    # Ensure robots.txt is present in dist
+    robots_src = root / "robots.txt"
+    robots_dst = dist / "robots.txt"
+    if robots_src.exists():
+        shutil.copy2(robots_src, robots_dst)
+    elif not robots_dst.exists():
+        robots_dst.write_text(
+            "User-agent: *\nAllow: /\n\nSitemap: https://book.purplecanarylab.com/sitemap.xml\n",
+            encoding="utf-8"
+        )
+
+    # Ensure llms.txt is present in dist
+    llms_src = root / "llms.txt"
+    llms_dst = dist / "llms.txt"
+    if llms_src.exists():
+        shutil.copy2(llms_src, llms_dst)
+
     if not json_path.exists():
         print("[!] book_data.json not found in dist/. Running compile_book.py first...")
         from compile_book import compile_manuscript
         compile_manuscript()
 
     raw_json = json_path.read_text(encoding="utf-8")
-    html_output = HTML_TEMPLATE.replace("{{BOOK_DATA_JSON}}", raw_json)
+    book_data = json.loads(raw_json)
+
+    # Generate full llms-full.txt from compiled manuscript
+    compiled_md = dist / "WHAT_WAS_IN_THAT_JOINT_BRO.compiled.md"
+    llms_full_dst = dist / "llms-full.txt"
+    if compiled_md.exists():
+        prefix = ""
+        if llms_src.exists():
+            prefix = llms_src.read_text(encoding="utf-8") + "\n\n---\n\n# FULL MANUSCRIPT TEXT\n\n"
+        llms_full_dst.write_text(prefix + compiled_md.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"[✓] Complete LLM text generated at: {llms_full_dst}")
+
+    # Generate sitemap.xml
+    sitemap_path = dist / "sitemap.xml"
+    generate_sitemap(book_data, sitemap_path)
+    print(f"[✓] Sitemap generated at: {sitemap_path}")
+
+    # Build comprehensive JSON-LD
+    json_ld_str = build_json_ld(book_data)
+
+    # Render SPA index.html
+    html_output = HTML_TEMPLATE.replace("{{BOOK_DATA_JSON}}", raw_json).replace("{{JSON_LD_DATA}}", json_ld_str)
 
     out_file = dist / "index.html"
     out_file.write_text(html_output, encoding="utf-8")
     print(f"[✓] Standalone Wiki SPA successfully generated at: {out_file}")
 
+    # Also inject JSON-LD into WHAT_WAS_IN_THAT_JOINT_BRO.html if present
+    book_html_file = dist / "WHAT_WAS_IN_THAT_JOINT_BRO.html"
+    if book_html_file.exists():
+        content = book_html_file.read_text(encoding="utf-8")
+        script_tag = f'\n<script type="application/ld+json">\n{json_ld_str}\n</script>\n'
+        if '<script type="application/ld+json">' in content:
+            content = re.sub(r'<script type="application/ld\+json">.*?</script>', script_tag.strip(), content, flags=re.DOTALL)
+        else:
+            content = content.replace("</head>", f"{script_tag}</head>", 1)
+        book_html_file.write_text(content, encoding="utf-8")
+        print(f"[✓] Updated JSON-LD in {book_html_file}")
+
 if __name__ == "__main__":
     generate_spa()
+

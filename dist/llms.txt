@@ -1,0 +1,63 @@
+# What Was In That Joint Bro!? — The Purple Canary Protocol
+> An open-science, field-deployable harm reduction Thin-Layer Chromatography (TLC) protocol for detecting synthetic cannabinoids (SPICE / K2) and dangerous adulterants in cannabis flower, vapes, and herbal products.
+
+## Overview
+"What Was In That Joint Bro!?" by Michael Scott Hoyt introduces the **Purple Canary Protocol**, a rapid, decentralized, low-cost thin-layer chromatography (TLC) field method designed for harm reduction outreach workers, community defense networks, festival testing tents, and individuals.
+
+The protocol empowers anyone to perform presumptive drug checking without requiring a million-dollar laboratory cleanroom or GC-MS spectrometer.
+
+- **Author**: Michael Scott Hoyt
+- **Organization / Publisher**: TehWiz Productions (https://tehwiz.com)
+- **License**: Copyleft 🄯 2026 Kopimi (k) — Open Methods, Mutual Aid, No Rights Reserved
+- **Web Reader**: https://book.purplecanarylab.com/
+- **Repository**: https://github.com/hoytnix/Joint-Book
+
+## Core Methodology: The SPOT - SNAP - KNOW Workflow
+1. **SPOT (Sample Extraction & Application)**:
+   - Micro-extraction of plant material, vape distillate, or resin using pure isopropanol or solvent mix.
+   - Spotting onto the baseline of an aluminum-backed silica gel 60 F254 TLC plate using a 1 µL or 2 µL glass capillary tube.
+2. **DEVELOPMENT**:
+   - Developing the plate in a sealed thermos or glass jar mobile phase chamber.
+   - Capillary action separates compounds based on their chemical polarity.
+3. **SNAP (Photodocumentation)**:
+   - Dual-wavelength UV inspection (254 nm shortwave and 365 nm longwave) inside an ultraviolet viewing box or dark shroud.
+   - High-resolution smartphone camera capture using standardized distance and color calibration targets.
+4. **KNOW (Visualization & Interpretation)**:
+   - Chemical visualization via Fast Blue B or Fast Blue BB diazonium salt coupling.
+   - Phenolic cannabinoids ($\Delta^9$-THC, CBD, CBN) react instantaneously to form distinct red, violet, and orange azo dyes at characteristic retention factors ($R_f$).
+   - Synthetic Cannabinoid Receptor Agonists (SCRAs such as MDMB-4en-PINACA, ADB-BUTINACA) lack the unhindered resorcinol ring and produce absent, anomalous, or displaced spots.
+
+## Key Safety & Limitations
+- **Presumptive Only**: TLC provides presumptive screening and pattern identification. It does not replace confirmatory laboratory testing (GC-MS, LC-MS, HPLC).
+- **Chemical Reagent Safety**: Fast Blue B / BB diazonium salts are potential carcinogens/sensitizers. Always handle with nitrile gloves and never spray into open air without adequate ventilation.
+- **Mutual Aid Over Criminalization**: Open methods ensure community harm reduction is not gatekept by proprietary patents or punitive state agencies.
+
+## Chapter Guide
+- [00. Title & Front Matter](https://book.purplecanarylab.com/#ch-00-title): Copyleft notice, dedication to open harm reduction, disclaimer, and table of contents.
+- [01. Introduction: The Question on the Street](https://book.purplecanarylab.com/#ch-01-introduction): The modern crisis of unregulated vape pens, sprayed hemp, and adulterated street cannabis.
+- [02. Chapter 1: Why Test What You Take](https://book.purplecanarylab.com/#ch-02-ch-1-why-test-what-you-take): Adulteration epidemiology, synthetic cannabinoid overdoses, and the difference between cannabis intoxication and acute synthetic toxicity.
+- [03. Chapter 2: The Kitchen, the Thermos, and the Keychain Light](https://book.purplecanarylab.com/#ch-03-ch-2-the-kitchen-the-thermos-and-the-keychain-light): Building a complete portable field TLC kit for under $50 using accessible materials.
+- [04. Chapter 3: Paper, Light, and Lemon - The Chemistry in Plain English](https://book.purplecanarylab.com/#ch-04-ch-3-paper-light-and-lemon-the-chemistry-in-plain-english): TLC mechanics, stationary vs. mobile phase, diazonium coupling chemistry, and UV fluorescence quenching.
+- [05. Chapter 4: SPOT - Taking the Sample](https://book.purplecanarylab.com/#ch-05-ch-4-spot-taking-the-sample): Practical sampling guidelines for flower buds, concentrates, e-liquids, and gummies.
+- [06. Chapter 5: SNAP - The Phone Does the Seeing](https://book.purplecanarylab.com/#ch-06-ch-5-snap-the-phone-does-the-seeing): Standardizing smartphone imaging, avoiding camera auto-exposure distortion, and optical alignment.
+- [07. Chapter 6: KNOW - Reading Your Results](https://book.purplecanarylab.com/#ch-07-ch-6-know-reading-your-results): Calculating $R_f$ values, matching color profiles, and detecting synthetic adulteration flags.
+- [08. Chapter 7: When the Result Scares You](https://book.purplecanarylab.com/#ch-08-ch-7-when-the-result-scares-you): Crisis de-escalation, rapid community alert dissemination, non-stigmatizing peer education, and overdose response.
+- [09. Chapter 8: What This Can't Tell You](https://book.purplecanarylab.com/#ch-09-ch-8-what-this-can-t-tell-you): Analytical boundaries, detection thresholds, limits of quantification, and cross-reactivity.
+- [10. One-Page Field SOP](https://book.purplecanarylab.com/#ch-10-one-page-field-sop): Laminated pocket reference card detailing the complete test procedure in 6 concise steps.
+- [11. Chapter 9: The Purple Canary Protocol (Full Standard Operating Procedure)](https://book.purplecanarylab.com/#ch-11-ch-9-the-purple-canary-protocol-full-sop): Exhaustive technical SOP, chemical preparations, quality control, solvent recipes, and disposal procedures.
+- [12. Chapter 10: Why Your Agency Needs This](https://book.purplecanarylab.com/#ch-12-ch-10-why-your-agency-needs-this): Institutional case study, liability navigation, and public health impact metrics.
+- [13. Chapter 11: Deploying the Protocol](https://book.purplecanarylab.com/#ch-13-ch-11-deploying-the-protocol): Mobile outreach units, fixed syringe exchange drop-ins, and festival harm reduction tents.
+- [14. Chapter 12: Training Your Team](https://book.purplecanarylab.com/#ch-14-ch-12-training-your-team): Volunteer training curricula, blind spike test verification, and quality assurance.
+- [15. Chapter 13: Restocking and Sustaining](https://book.purplecanarylab.com/#ch-15-ch-13-restocking-and-sustaining): Chemical vendor procurement, storage stability, humidity management, and cost containment.
+- [16. Chapter 14: The Economics of Free Testing](https://book.purplecanarylab.com/#ch-16-ch-14-the-economics-of-free-testing): Financial models proving testing costs ~$0.50-$1.00 per sample versus hundreds of dollars for commercial devices.
+- [17. Chapter 15: Open Methods, Open Knowledge](https://book.purplecanarylab.com/#ch-17-ch-15-open-methods-open-knowledge): Kopimi ethos, anti-enclosure of life-saving science, and decentralized peer-to-peer verification.
+- [18. Closing: The Living Protocol](https://book.purplecanarylab.com/#ch-18-closing-the-living-protocol): A call for community contribution, protocol refinement, and ongoing vigilance.
+- [19. Back Matter: Chemical Glossary & Equipment Directory](https://book.purplecanarylab.com/#ch-19-back-matter): Full chemical reference terms, CAS numbers, $R_f$ charts, and vendor lists.
+- [20. Sequel Teaser: The Cannabinoid Cookbook](https://book.purplecanarylab.com/#ch-20-sequel-the-cannabinoid-cookbook): Advanced chromatography profiles, minor cannabinoid separation, and quantification techniques.
+
+## Full Text & Resource Links
+- [Complete Manuscript (Markdown)](https://book.purplecanarylab.com/WHAT_WAS_IN_THAT_JOINT_BRO.compiled.md): Uncut unified markdown manuscript.
+- [Full LLM Dump (llms-full.txt)](https://book.purplecanarylab.com/llms-full.txt): Direct single-file text format for AI analysis.
+- [EPUB Edition](https://book.purplecanarylab.com/WHAT_WAS_IN_THAT_JOINT_BRO.epub): E-reader format.
+- [PDF Edition](https://book.purplecanarylab.com/WHAT_WAS_IN_THAT_JOINT_BRO.pdf): Print-ready PDF.
+- [Stand-Alone Single File HTML](https://book.purplecanarylab.com/WHAT_WAS_IN_THAT_JOINT_BRO.html): Static printable HTML edition.
